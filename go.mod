@@ -1,4 +1,4 @@
-module Templates
+module GoProjects
 
 go 1.17
 

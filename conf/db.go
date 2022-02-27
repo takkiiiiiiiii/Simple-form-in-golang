@@ -19,7 +19,7 @@ type ConfDB struct {
 func ReadConfDB() (*ConfDB, error) {
 
     // 設定ファイル名
-    const conffile = "/Users/yudai/Go/Project/Templates/conf/db.json"
+    const conffile = "/Users/yudai/GoProjects/conf/db.json"
 
     // 構造体を初期化
     conf := new(ConfDB)

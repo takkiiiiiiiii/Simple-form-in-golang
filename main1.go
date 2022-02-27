@@ -2,7 +2,7 @@ package main
 
 import (
     "net/http"
-    "Templates/Req_handler"
+    "GoProjects/Req_handler"
 )
 
 func main() {
