@@ -1,7 +1,6 @@
 package conf // 独自の設定ファイルパッケージ
 
 import (
-    "fmt"
     "encoding/json"
     "io/ioutil"
 )
@@ -18,12 +17,10 @@ type ConfDB struct {
 
 // URL設定の構造体
 func ReadConfDB() (*ConfDB, error) {
-    fmt.Println("falcon")
 
     // 設定ファイル名
     const conffile = "/Users/yudai/Go/Project/Templates/conf/db.json"
 
-    fmt.Println("falcon2")
     // 構造体を初期化
     conf := new(ConfDB)
 
@@ -32,7 +29,6 @@ func ReadConfDB() (*ConfDB, error) {
     if err != nil {
         return conf, err
     }
-    fmt.Println(cValue)
 
     // 読み込んだjson文字列をデコードし構造体にセット
     err = json.Unmarshal([]byte(cValue), conf)//cValue confファイルを読み込んだもの
@@ -41,6 +37,5 @@ func ReadConfDB() (*ConfDB, error) {
     if err != nil {
         return conf, err
     }
-    fmt.Println(conf)
     return conf, nil
 }

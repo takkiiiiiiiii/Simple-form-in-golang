@@ -14,11 +14,8 @@ import (
 // 登録結果の確認画面
 func HandlerUserRegistered(w http.ResponseWriter, req *http.Request) {
 
-    fmt.Println("dddd")
     // POSTデータINSERT関数を実行
    result := insertPostedUser(req)
-   //result := "aaaaa"
-   fmt.Println("waaa")
 
     // テンプレートをパースする
     tpl := template.Must(template.ParseFiles("/Users/yudai/Go/Project/Templates/Req_handler/user-registered.gtpl"))
@@ -41,12 +38,9 @@ func insertPostedUser(req *http.Request) string {
 
     // 設定ファイルを読み込む
     confDB, err := conf.ReadConfDB()
-    fmt.Println(confDB)
-    fmt.Println(err)
     if err != nil {
         result = "設定ファイルの読み込みに失敗しました。"
     }
-    fmt.Println(result)
 
     // 設定値から接続文字列を生成
     conStr := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s", confDB.User, confDB.Pass, confDB.Host, confDB.Port, confDB.DbName, confDB.Charset)
@@ -54,7 +48,6 @@ func insertPostedUser(req *http.Request) string {
     fmt.Println(conStr)
     // データベース接続
     db, err := sql.Open("mysql", conStr)
-    fmt.Println(err)
     if err != nil {
         result = "データベースへの接続に失敗しました。"
     }
