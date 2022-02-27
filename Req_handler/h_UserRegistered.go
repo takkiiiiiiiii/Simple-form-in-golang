@@ -6,8 +6,8 @@ import (
     "html/template"
     "net/http"
 
-    "Templates/conf"    // 実装した設定パッケージの読み込み
-    "Templates/query"   // 実装したクエリパッケージの読み込み
+    "GoProjects/conf"    // 実装した設定パッケージの読み込み
+    "GoProjects/query"   // 実装したクエリパッケージの読み込み
     _ "github.com/go-sql-driver/mysql"
 )
 
@@ -18,7 +18,7 @@ func HandlerUserRegistered(w http.ResponseWriter, req *http.Request) {
    result := insertPostedUser(req)
 
     // テンプレートをパースする
-    tpl := template.Must(template.ParseFiles("/Users/yudai/Go/Project/Templates/Req_handler/user-registered.gtpl"))
+    tpl := template.Must(template.ParseFiles("/Users/yudai/GoProjects/Req_handler/user-registered.gtpl"))
 
     // テンプレートに出力する値をマップにセット
     values := map[string]string{
@@ -45,7 +45,6 @@ func insertPostedUser(req *http.Request) string {
     // 設定値から接続文字列を生成
     conStr := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s", confDB.User, confDB.Pass, confDB.Host, confDB.Port, confDB.DbName, confDB.Charset)
 
-    fmt.Println(conStr)
     // データベース接続
     db, err := sql.Open("mysql", conStr)
     if err != nil {

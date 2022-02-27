@@ -9,7 +9,7 @@ import (
 /// 入力フォーム画面
 func HandlerUserForm(w http.ResponseWriter, r *http.Request) {
     // テンプレートをパースする
-    tpl := template.Must(template.ParseFiles("/Users/yudai/Go/Project/Templates/Req_handler/user-form.gtpl"))
+    tpl := template.Must(template.ParseFiles("/Users/yudai/GoProjects/Req_handler/user-form.gtpl"))
 
     // テンプレートに出力する値をマップにセット
     values := map[string]string{}

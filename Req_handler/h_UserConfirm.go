@@ -9,7 +9,7 @@ import (
 // 入力内容の確認画面
 func HandlerUserConfirm(w http.ResponseWriter, req *http.Request) {
     // テンプレートをパースする
-    tpl := template.Must(template.ParseFiles("/Users/yudai/Go/Project/Templates/Req_handler/user-confirm.gtpl"))
+    tpl := template.Must(template.ParseFiles("/Users/yudai/GoProjects/Req_handler/user-confirm.gtpl"))
 
     // テンプレートに出力する値をマップにセット
     values := map[string]string{
